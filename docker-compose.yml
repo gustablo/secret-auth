@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: secret_auth
+      MYSQL_USER: guest
+      MYSQL_PASSWORD: guest
+      MYSQL_ROOT_PASSWORD: guest
+    ports:
+      - 3306:3306
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
